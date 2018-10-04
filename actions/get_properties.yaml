@@ -1,0 +1,69 @@
+---
+name: get_properties
+runner_type: python-script
+description: Get properties of managed objects through the PropertyCollector.
+enabled: true
+entry_point: get_properties.py
+parameters:
+    type:
+        type: string
+        description: The type of object to get.
+        required: true
+        position: 0
+        enum:
+          - AuthorizationManager
+          - ClusterComputeResource
+          - ComputeResource
+          - CustomFieldsManager
+          - Datacenter
+          - Datastore
+          - DiagnosticManager
+          - DistributedVirtualSwitch
+          - DrsStatsManager/InjectorWorkload
+          - Extension
+          - ExtensionManager
+          - HbrManager
+          - HostSystem
+          - HttpNfcLease
+          - IpPoolManager
+          - LatencySensitivity
+          - LicenseAssignmentManager
+          - LicenseManager
+          - LocalizationManager
+          - ManagedEntity
+          - Network
+          - OpaqueNetwork
+          - OvfConsumer
+          - OvfManager
+          - PerformanceManager
+          - ResourcePlanningManager
+          - ResourcePool
+          - ServiceInstance
+          - ServiceManager
+          - SessionManager
+          - SharesInfo
+          - SimpleCommand
+          - StoragePod
+          - StorageResourceManager
+          - TaskFilterSpec
+          - TaskInfo
+          - UpdateVirtualMachineFilesResult
+          - VirtualApp
+          - VirtualDiskManager
+          - VirtualMachine
+    id:
+        type: array
+        description: MOIDs to restrict the results to.  Omit to retrieve all objects.
+        required: false
+        position: 1
+    property:
+        type: array
+        description: Fully qualified property within the type (dot separated), such as 'config.hardware.memoryMB' for a VirtualMachine.  Omit to retrieve all properties.
+        required: false
+        position: 2
+    vsphere:
+        type: string
+        description: Pre-Configured vsphere connection details
+        required: false
+        position: 3
+        default: ~
